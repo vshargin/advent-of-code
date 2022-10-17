@@ -1,4 +1,4 @@
-def count_increases(input: list[int]):
+def count_increases(input: list[int]) -> int:
     increase_count = 0
 
     for i in range(1, len(input)):
