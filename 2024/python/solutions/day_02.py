@@ -4,16 +4,16 @@ from utils import AOCSolution
 
 
 class Solution(AOCSolution):
-    def _parse_input(self, input):
+    def _parse_input(self, puzzle_input: list[str]):
         self._reports = []
-        for line in input:
+        for line in puzzle_input:
             report = list(map(int, line.strip().split(" ")))
             self._reports.append(report)
 
     def _solve_common(self):
         pass
 
-    def solve_part_1(self):
+    def solve_part_1(self) -> int:
         safe_reports = 0
         for i, report in enumerate(self._reports):
             safe, _ = self.test_safety(report)
@@ -22,7 +22,7 @@ class Solution(AOCSolution):
 
         return safe_reports
 
-    def solve_part_2(self):
+    def solve_part_2(self) -> int:
         safe_reports = 0
         for i, report in enumerate(self._reports):
             safe, removal_candidates = self.test_safety(report)
@@ -38,7 +38,7 @@ class Solution(AOCSolution):
         return safe_reports
 
     @staticmethod
-    def test_safety(report: list[int], verbose: bool = False) -> Tuple[bool, set[int]]:
+    def test_safety(report: list[int]) -> Tuple[bool, set[int]]:
         safe = True
         last_change = None
         last_value = None

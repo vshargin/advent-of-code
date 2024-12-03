@@ -2,10 +2,10 @@ from utils import AOCSolution
 
 
 class Solution(AOCSolution):
-    def _parse_input(self, input):
+    def _parse_input(self, puzzle_input: list[str]):
         self._left = []
         self._right = []
-        for line in input:
+        for line in puzzle_input:
             left_item, right_item = line.strip().split("   ")
             self._left.append(int(left_item))
             self._right.append(int(right_item))
@@ -14,7 +14,7 @@ class Solution(AOCSolution):
         self._left.sort()
         self._right.sort()
 
-    def solve_part_1(self):
+    def solve_part_1(self) -> int:
         distances = []
         for left_item, right_item in zip(self._left, self._right):
             distances.append(abs(left_item - right_item))
@@ -22,7 +22,7 @@ class Solution(AOCSolution):
 
         return total_distance
 
-    def solve_part_2(self):
+    def solve_part_2(self) -> int:
         right_frequencies = {}
         for item in self._right:
             right_frequencies[item] = right_frequencies.get(item, 0) + 1

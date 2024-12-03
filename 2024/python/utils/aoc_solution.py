@@ -2,15 +2,15 @@ from abc import ABC, abstractmethod
 
 
 class AOCSolution(ABC):
-    def __init__(self, input: str | list[str]):
-        if isinstance(input, str):
-            with open(input) as f:
-                self._parse_input(f)
+    def __init__(self, puzzle_input: str | list[str]):
+        if isinstance(puzzle_input, str):
+            with open(puzzle_input) as f:
+                self._parse_input(f.read().splitlines())
         else:
             self._parse_input(input)
 
     @abstractmethod
-    def _parse_input(self, input):
+    def _parse_input(self, puzzle_input):
         pass
 
     def solve(self, part: int):
