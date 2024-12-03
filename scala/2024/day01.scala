@@ -1,5 +1,5 @@
 object Day01 extends App {
-  val input = scala.io.Source.fromFile("../../inputs/2024/day_01.txt").mkString
+  val input = scala.io.Source.fromFile("../inputs/2024/day_01.txt").mkString
 
   val (left, right) = parse_input(input)
 
