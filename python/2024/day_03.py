@@ -11,7 +11,6 @@ class Solution(AOCSolution):
         pass
 
     def solve_part_1(self):
-        print(self._instructions)
         return self._execute(self._instructions)
 
     def solve_part_2(self):
