@@ -26,18 +26,18 @@ class Solution(AOCSolution):
             (-1, 0),
             (0, -1),
         ]
-        max_i = len(matrix)
-        max_j = len(matrix[0])
+        max_i = len(matrix) - 1
+        max_j = len(matrix[0]) - 1
 
         count = 0
-        for i in range(max_i):
-            for j in range(max_j):
+        for i in range(max_i + 1):
+            for j in range(max_j + 1):
                 for direction in directions:
                     word = ""
                     for k in range(4):
                         new_i = i + k * direction[0]
                         new_j = j + k * direction[1]
-                        if 0 <= new_i <= max_i - 1 and 0 <= new_j <= max_j - 1:
+                        if 0 <= new_i <= max_i and 0 <= new_j <= max_j:
                             word += matrix[new_i][new_j]
                     if word == "XMAS":
                         count += 1
