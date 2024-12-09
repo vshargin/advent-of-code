@@ -1,7 +1,7 @@
 object Day01 extends App {
   val input = scala.io.Source.fromFile("../inputs/2024/day_01.txt").mkString
 
-  val (left, right) = parse_input(input)
+  val (left, right) = parseInput(input)
 
   val partOneSolution = solvePartOne(left, right)
   val partTwoSolution = solvePartTwo(left, right)
@@ -17,7 +17,7 @@ object Day01 extends App {
     left.map((item) => item * right.count(_ == item)).sum
   }
 
-  def parse_input(input: String): (Seq[Int], Seq[Int]) = {
+  def parseInput(input: String): (Seq[Int], Seq[Int]) = {
     val splitInput =
       input.linesIterator.map(_.split("   ").map(_.toInt)).toSeq
 
