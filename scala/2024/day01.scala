@@ -3,26 +3,26 @@ object Day01 extends App {
 
   val (left, right) = parse_input(input)
 
-  val part_1_solution = solve_part_1(left, right)
-  val part_2_solution = solve_part_2(left, right)
+  val partOneSolution = solvePartOne(left, right)
+  val partTwoSolution = solvePartTwo(left, right)
 
-  println(f"Part 1: $part_1_solution")
-  println(f"Part 2: $part_2_solution")
+  println(f"Part 1: $partOneSolution")
+  println(f"Part 2: $partTwoSolution")
 
-  def solve_part_1(left: Seq[Int], right: Seq[Int]): Int = {
+  def solvePartOne(left: Seq[Int], right: Seq[Int]): Int = {
     left.zip(right).map((left, right) => ((left - right).abs)).sum
   }
 
-  def solve_part_2(left: Seq[Int], right: Seq[Int]): Int = {
+  def solvePartTwo(left: Seq[Int], right: Seq[Int]): Int = {
     left.map((item) => item * right.count(_ == item)).sum
   }
 
   def parse_input(input: String): (Seq[Int], Seq[Int]) = {
-    val input_split =
+    val splitInput =
       input.linesIterator.map(_.split("   ").map(_.toInt)).toSeq
 
-    val left = input_split.map(_(0)).sorted
-    val right = input_split.map(_(1)).sorted
+    val left = splitInput.map(_(0)).sorted
+    val right = splitInput.map(_(1)).sorted
 
     (left, right)
   }
